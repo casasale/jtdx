@@ -1,3 +1,13 @@
+----------------------------------------------------------------------
+
+JTDX V2.2.159 Fork for available V2.2.159 source code based fixes by Tihomir CE3TSK
+
+20250908:
+  V2.2.160 Freeze fix for DXCC display issue from Arvo ES1JA https://jtdx.freeforums.net/post/2677
+  V2.2.159 Crash fix for bigger ALLCALL7.TXT files, e.g. when using V2.2.160 ALLCALL7.TXT from https://sourceforge.net/projects/jtdx/files/ALLCALL7_20250619_rc160.zip/download
+  Updated cty.dat, lotw-user-activity.csv and ALLCALL7.TXT to September 2025 versions
+
+----------------------------------------------------------------------
 
 Copyright (C) 2001-2020 by Joe Taylor, K1JT.
 Copyright (C) 2016-2020 by Igor Chernikov UA3DJY and Arvo Järve ES1JA.
@@ -23,12 +33,4 @@ Project mailing  list:
 https://jtdx.freeforums.net/
 
 
-----------------------------------------------------------------------
-
-JTDX V2.2.159 Fork for available V2.2.159 source code based fixes by Tihomir CE3TSK
-
-20250908:
-  V2.2.160 Freeze fix for DXCC display issue from Arvo ES1JA https://jtdx.freeforums.net/post/2677
-  V2.2.159 Crash fix for bigger ALLCALL7.TXT files, e.g. when using V2.2.160 ALLCALL7.TXT from https://sourceforge.net/projects/jtdx/files/ALLCALL7_20250619_rc160.zip/download
-  Updated cty.dat, lotw-user-activity.csv and ALLCALL7.TXT to September 2025 versions
 
