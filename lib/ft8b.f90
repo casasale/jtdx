@@ -249,13 +249,13 @@ subroutine ft8b(newdat1,nQSOProgress,nfqso,nftx,napwid,lsubtract,npos,freqsub,tm
 
     lreverse=.false.
     if(.not.swl) then
-      if(nft8cycles.lt.2) then 
+      if(nft8cycles.lt.6) then 
         if(ipass.eq.2) lreverse=.true.
       else
         if(ipass.eq.5 .or. ipass.eq.7) lreverse=.true.
       endif
     else ! swl
-      if(nft8swlcycles.lt.2) then 
+      if(nft8swlcycles.lt.6) then 
         if(ipass.eq.2) lreverse=.true.
       else
         if(ipass.eq.5 .or. ipass.eq.7) lreverse=.true.

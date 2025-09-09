@@ -166,15 +166,11 @@ contains
 
     npass=3 ! fallback
     if(swl) then
-      if(nft8swlcycles.eq.1) then; npass=3
-      else if(nft8swlcycles.eq.2) then; npass=6
-      else if(nft8swlcycles.eq.3) then; npass=9
+      if(nft8swlcycles.ge.3 .and. nft8swlcycles.le.9) then; npass=nft8swlcycles
       else; npass=3
       endif
     else
-      if(nft8cycles.eq.1) then; npass=3
-      else if(nft8cycles.eq.2) then; npass=6
-      else if(nft8cycles.eq.3) then; npass=9
+      if(nft8cycles.ge.3 .and. nft8cycles.le.9) then; npass=nft8cycles
       else; npass=3
       endif
     endif

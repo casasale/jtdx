@@ -201,8 +201,8 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   m_XIT {0},
   m_ndepth {3},
   m_ncandthin {100},
-  m_nFT8Cycles {1},
-  m_nFT8SWLCycles {1},
+  m_nFT8Cycles {3},
+  m_nFT8SWLCycles {3},
   m_nFT8RXfSens {1},
   m_nFT4depth {3},
   m_sec0 {-1},
@@ -646,15 +646,24 @@ MainWindow::MainWindow(bool multiple, QSettings * settings, QSharedMemory *shdme
   ui->actionDeepestDecode->setActionGroup(DepthGroup);
 
   QActionGroup* FT8CyclesGroup = new QActionGroup(this);
-  ui->actionDecFT8cycles1->setActionGroup(FT8CyclesGroup);
-  ui->actionDecFT8cycles2->setActionGroup(FT8CyclesGroup);
   ui->actionDecFT8cycles3->setActionGroup(FT8CyclesGroup);
+  ui->actionDecFT8cycles4->setActionGroup(FT8CyclesGroup);
+  ui->actionDecFT8cycles5->setActionGroup(FT8CyclesGroup);
+  ui->actionDecFT8cycles6->setActionGroup(FT8CyclesGroup);
+  ui->actionDecFT8cycles7->setActionGroup(FT8CyclesGroup);
+  ui->actionDecFT8cycles8->setActionGroup(FT8CyclesGroup);
+  ui->actionDecFT8cycles9->setActionGroup(FT8CyclesGroup);
 
   QActionGroup* FT8SWLCyclesGroup = new QActionGroup(this);
-  ui->actionDecFT8SWLcycles1->setActionGroup(FT8SWLCyclesGroup);
-  ui->actionDecFT8SWLcycles2->setActionGroup(FT8SWLCyclesGroup);
   ui->actionDecFT8SWLcycles3->setActionGroup(FT8SWLCyclesGroup);
-  
+  ui->actionDecFT8SWLcycles4->setActionGroup(FT8SWLCyclesGroup);
+  ui->actionDecFT8SWLcycles5->setActionGroup(FT8SWLCyclesGroup);
+  ui->actionDecFT8SWLcycles6->setActionGroup(FT8SWLCyclesGroup);
+  ui->actionDecFT8SWLcycles7->setActionGroup(FT8SWLCyclesGroup);
+  ui->actionDecFT8SWLcycles8->setActionGroup(FT8SWLCyclesGroup);
+  ui->actionDecFT8SWLcycles9->setActionGroup(FT8SWLCyclesGroup);
+
+
   QActionGroup* FT8RXfreqSensitivityGroup = new QActionGroup(this);
   ui->actionRXfLow->setActionGroup(FT8RXfreqSensitivityGroup);
   ui->actionRXfMedium->setActionGroup(FT8RXfreqSensitivityGroup);
@@ -1476,15 +1485,59 @@ void MainWindow::readSettings()
   if(nDTcenter>-201 && nDTcenter<251) ui->DTCenterSpinBox->setValue(static_cast<double>(nDTcenter/100.));
   else ui->DTCenterSpinBox->setValue(0.0);
 
-  m_nFT8Cycles=m_settings->value("NFT8Cycles",1).toInt(); if(!(m_nFT8Cycles>=1 && m_nFT8Cycles<=3)) m_nFT8Cycles=1;
-  if(m_nFT8Cycles==1) ui->actionDecFT8cycles1->setChecked(true);
-  else if(m_nFT8Cycles==2) ui->actionDecFT8cycles2->setChecked(true);
-  else if(m_nFT8Cycles==3) ui->actionDecFT8cycles3->setChecked(true);
+  m_nFT8Cycles=m_settings->value("NFT8Cycles",3).toInt(); if(!(m_nFT8Cycles>=3 && m_nFT8Cycles<=9)) m_nFT8Cycles=3;
+  switch (m_nFT8Cycles) {
+    case 3:
+        ui->actionDecFT8cycles3->setChecked(true);
+        break;
+    case 4:
+        ui->actionDecFT8cycles4->setChecked(true);
+        break;
+    case 5:
+        ui->actionDecFT8cycles5->setChecked(true);
+        break;
+    case 6:
+        ui->actionDecFT8cycles6->setChecked(true);
+        break;
+    case 7:
+        ui->actionDecFT8cycles7->setChecked(true);
+        break;
+    case 8:
+        ui->actionDecFT8cycles8->setChecked(true);
+        break;
+    case 9:
+        ui->actionDecFT8cycles9->setChecked(true);
+        break;
+    default:
+       ui->actionDecFT8cycles3->setChecked(true);
+  }
 
-  m_nFT8SWLCycles=m_settings->value("NFT8SWLCycles",1).toInt(); if(!(m_nFT8SWLCycles>=1 && m_nFT8SWLCycles<=3)) m_nFT8SWLCycles=1;
-  if(m_nFT8SWLCycles==1) ui->actionDecFT8SWLcycles1->setChecked(true);
-  else if(m_nFT8SWLCycles==2) ui->actionDecFT8SWLcycles2->setChecked(true);
-  else if(m_nFT8SWLCycles==3) ui->actionDecFT8SWLcycles3->setChecked(true);
+  m_nFT8SWLCycles=m_settings->value("NFT8SWLCycles",3).toInt(); if(!(m_nFT8SWLCycles>=3 && m_nFT8SWLCycles<=9)) m_nFT8SWLCycles=3;
+  switch (m_nFT8SWLCycles) {
+    case 3:
+        ui->actionDecFT8SWLcycles3->setChecked(true);
+        break;
+    case 4:
+        ui->actionDecFT8SWLcycles4->setChecked(true);
+        break;
+    case 5:
+        ui->actionDecFT8SWLcycles5->setChecked(true);
+        break;
+    case 6:
+        ui->actionDecFT8SWLcycles6->setChecked(true);
+        break;
+    case 7:
+        ui->actionDecFT8SWLcycles7->setChecked(true);
+        break;
+    case 8:
+        ui->actionDecFT8SWLcycles8->setChecked(true);
+        break;
+    case 9:
+        ui->actionDecFT8SWLcycles9->setChecked(true);
+        break;
+    default:
+       ui->actionDecFT8SWLcycles3->setChecked(true);
+  }
 
   m_nFT8RXfSens=m_settings->value("NFT8QSORXfreqSensitivity",2).toInt(); if(!(m_nFT8RXfSens>=1 && m_nFT8RXfSens<=3)) m_nFT8RXfSens=1;
   if(m_nFT8RXfSens==1) ui->actionRXfLow->setChecked(true);
@@ -6372,13 +6425,21 @@ void MainWindow::on_actionQuickDecode_triggered() { m_ndepth=1; ui->actionQuickD
 void MainWindow::on_actionMediumDecode_triggered() { m_ndepth=2; ui->actionMediumDecode->setChecked(true); }
 void MainWindow::on_actionDeepestDecode_triggered() { m_ndepth=3; ui->actionDeepestDecode->setChecked(true); }
 
-void MainWindow::on_actionDecFT8cycles1_triggered() { m_nFT8Cycles=1; ui->actionDecFT8cycles1->setChecked(true); }
-void MainWindow::on_actionDecFT8cycles2_triggered() { m_nFT8Cycles=2; ui->actionDecFT8cycles2->setChecked(true); }
 void MainWindow::on_actionDecFT8cycles3_triggered() { m_nFT8Cycles=3; ui->actionDecFT8cycles3->setChecked(true); }
+void MainWindow::on_actionDecFT8cycles4_triggered() { m_nFT8Cycles=4; ui->actionDecFT8cycles4->setChecked(true); }
+void MainWindow::on_actionDecFT8cycles5_triggered() { m_nFT8Cycles=5; ui->actionDecFT8cycles5->setChecked(true); }
+void MainWindow::on_actionDecFT8cycles6_triggered() { m_nFT8Cycles=6; ui->actionDecFT8cycles6->setChecked(true); }
+void MainWindow::on_actionDecFT8cycles7_triggered() { m_nFT8Cycles=7; ui->actionDecFT8cycles7->setChecked(true); }
+void MainWindow::on_actionDecFT8cycles8_triggered() { m_nFT8Cycles=8; ui->actionDecFT8cycles8->setChecked(true); }
+void MainWindow::on_actionDecFT8cycles9_triggered() { m_nFT8Cycles=9; ui->actionDecFT8cycles9->setChecked(true); }
 
-void MainWindow::on_actionDecFT8SWLcycles1_triggered() { m_nFT8SWLCycles=1; ui->actionDecFT8SWLcycles1->setChecked(true); }
-void MainWindow::on_actionDecFT8SWLcycles2_triggered() { m_nFT8SWLCycles=2; ui->actionDecFT8SWLcycles2->setChecked(true); }
 void MainWindow::on_actionDecFT8SWLcycles3_triggered() { m_nFT8SWLCycles=3; ui->actionDecFT8SWLcycles3->setChecked(true); }
+void MainWindow::on_actionDecFT8SWLcycles4_triggered() { m_nFT8SWLCycles=4; ui->actionDecFT8SWLcycles4->setChecked(true); }
+void MainWindow::on_actionDecFT8SWLcycles5_triggered() { m_nFT8SWLCycles=5; ui->actionDecFT8SWLcycles5->setChecked(true); }
+void MainWindow::on_actionDecFT8SWLcycles6_triggered() { m_nFT8SWLCycles=6; ui->actionDecFT8SWLcycles6->setChecked(true); }
+void MainWindow::on_actionDecFT8SWLcycles7_triggered() { m_nFT8SWLCycles=7; ui->actionDecFT8SWLcycles7->setChecked(true); }
+void MainWindow::on_actionDecFT8SWLcycles8_triggered() { m_nFT8SWLCycles=8; ui->actionDecFT8SWLcycles8->setChecked(true); }
+void MainWindow::on_actionDecFT8SWLcycles9_triggered() { m_nFT8SWLCycles=9; ui->actionDecFT8SWLcycles9->setChecked(true); }
 
 void MainWindow::on_actionRXfLow_triggered() { m_nFT8RXfSens=1; ui->actionRXfLow->setChecked(true); }
 void MainWindow::on_actionRXfMedium_triggered() { m_nFT8RXfSens=2; ui->actionRXfMedium->setChecked(true); }
