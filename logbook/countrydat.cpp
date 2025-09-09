@@ -579,7 +579,9 @@ QString CountryDat::find(const QString prefix)
     while(!pf.isEmpty ())
   	{
         QString country = "";
-        if (pf.length() == prefix.length()) {
+// CE3TSK: Fix by Arvo from V2.2.160
+//	if (pf.length() == prefix.length()) {
+        if (pf.length() == prefix.length() && pf != "1B1ABC") {
              country = _data.value("="+pf,country);
             if (!country.isEmpty ())
                 return country;
