@@ -3,8 +3,8 @@ module jt65_mod9
   
   parameter (MAXC=200000)
 ! supporting 7-char Australian callsigns
-  character*7 call0c(11500),calld(11100),callef(9000),callgh(7500),calli(7600),callj(9000),callk(24000),calllm(6500), &
-              calln(9400),callo(6700),callpq(5800),callr(6500),callst(7500),calluv(10400),callw(13700),callxz(5800)
+  character*7 call0c(115000),calld(111000),callef(90000),callgh(75000),calli(76000),callj(90000),callk(240000),calllm(65000), &
+              calln(94000),callo(67000),callpq(58000),callr(65000),callst(75000),calluv(104000),callw(137000),callxz(58000)
   character callsign*12
   character*180 line
   integer ncall0c,ncalld,ncallef,ncallgh,ncalli,ncallj,ncallk,ncalllm,ncalln,ncallo,ncallpq,ncallr,ncallst,ncalluv, &
