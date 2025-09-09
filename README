@@ -2,6 +2,19 @@
 
 JTDX V2.2.159 Fork for available V2.2.159 source code based fixes by Tihomir CE3TSK
 
+20250909:
+  Changed decode cycles to finer grade cycles, 
+    i.e. new cycles values are the same as 3 times old cycle value, 
+    and now there are new * intermediate values, e.g.:
+      OLD cycles   |    New Cycles
+      ----------------------------
+           1       |       3
+           -       |       4*
+           -       |       5*
+           2       |       6
+           -       |       7*
+           -       |       8*
+           3       |       9
 20250908:
   V2.2.160 Freeze fix for DXCC display issue from Arvo ES1JA https://jtdx.freeforums.net/post/2677
   V2.2.159 Crash fix for bigger ALLCALL7.TXT files, e.g. 
